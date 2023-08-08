@@ -1,0 +1,143 @@
+@import "@styles/variables.scss";
+
+.sidebar__wrapper {
+    padding-top: 20px;
+    position: fixed;
+    height: 100vh;
+    user-select: none;
+}
+
+.sidebar {
+    width: 14rem;
+    height: 100%;
+    background-color: $primary_color;
+    padding: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    overflow: hidden;
+}
+
+.sidebar__top {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $secondary_color;
+}
+
+.sidebar__logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    border-radius: 1rem;
+}
+
+.sidebar__logo-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $white_color;
+}
+
+.sidebar__list {
+    list-style: none;
+}
+
+.sidebar__link {
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #000;
+    padding: 0.8rem 0.5rem;
+    display: flex;
+    background-color: $white_color;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+}
+
+@media (min-width: 500px) {
+    .sidebar__link:hover {
+        color: $white_color;
+        background-color: $secondary_color;
+    }
+}
+
+.sidebar__link--active {
+    color: $white_color;
+    background-color: $secondary_color;
+}
+
+.sidebar__icon {
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.sidebar__name {
+    margin-left: 0.5rem;
+}
+
+.collapsed {
+    width: 3.3rem;
+
+    & .sidebar__name,
+    & .sidebar__logo-name {
+        display: none;
+    }
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    top: 4.7rem;
+    border: none;
+    background-color: $secondary_color;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid $secondary_color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transform: translateX(50%);
+    font-size: 1.1rem;
+}
+
+// @media (min-width: 500px) {
+//     .collapsed {
+//         width: 3.3rem;
+
+//         & .sidebar__name,
+//         & .sidebar__logo-name {
+//             display: none;
+//         }
+//     }
+
+//     .sidebar__link {
+//         display: inline-block;
+//         font-size: 1rem;
+//         text-decoration: none;
+//         color: #000;
+//         padding: 0.8rem 0.5rem;
+//         display: flex;
+//         background-color: $white_color;
+//         margin-bottom: 1rem;
+//         border-radius: 0.8rem;
+//     }
+
+//     .sidebar__logo {
+//         width: 2.5rem;
+//         height: 2.5rem;
+//         object-fit: contain;
+//         border-radius: 1rem;
+//     }
+
+//     .sidebar {
+//         width: 14rem;
+//         height: 100%;
+//         background-color: $primary_color;
+//         padding: 0.5rem;
+//         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+//         overflow: hidden;
+//     }
+// }

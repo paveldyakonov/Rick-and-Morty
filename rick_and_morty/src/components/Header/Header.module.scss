@@ -1,0 +1,35 @@
+@import "@styles/variables.scss";
+
+.header {
+    position: fixed;
+    width: 100vw;
+    background-color: $primary_color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    user-select: none;
+    border: 1px solid $secondary_color;
+
+    & .logo {
+        position: relative;
+        width: 20vw;
+        height: 100px;
+    }
+
+    & .logo2 {
+        position: relative;
+        width: 10vw;
+        height: 80px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header .logo {
+        width: 50vw;
+    }
+
+    .header .logo2 {
+        width: 20vw;
+    }
+}
