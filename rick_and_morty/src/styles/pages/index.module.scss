@@ -1,0 +1,47 @@
+.page {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../../public/images/mainImage.jpg");
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center center;
+    background-attachment: fixed;
+
+    & .main {
+        padding-top: 2rem;
+        width: 100vw;
+
+        & .h1 {
+            text-align: center;
+            height: 30vh;
+            font-size: 2em;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .page {
+
+        & .main {
+            padding-left: 10vw;
+            padding-right: 10px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        & .main {
+            padding-left: 20vw;
+            padding-right: 10px;
+
+            & .h1 {
+                font-size: 1.3em;
+            }
+        }
+    }
+}

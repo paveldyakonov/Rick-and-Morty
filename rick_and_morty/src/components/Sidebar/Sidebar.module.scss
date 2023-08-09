@@ -3,6 +3,7 @@
 .sidebar__wrapper {
     padding-top: 20px;
     position: fixed;
+    z-index: 100;
     height: 100vh;
     user-select: none;
 }
@@ -14,6 +15,7 @@
     padding: 0.5rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     overflow: hidden;
+    box-shadow: $box-shadow;
 }
 
 .sidebar__top {
@@ -53,13 +55,6 @@
     background-color: $white_color;
     margin-bottom: 1rem;
     border-radius: 0.8rem;
-}
-
-@media (min-width: 500px) {
-    .sidebar__link:hover {
-        color: $white_color;
-        background-color: $secondary_color;
-    }
 }
 
 .sidebar__link--active {
@@ -103,41 +98,48 @@
     font-size: 1.1rem;
 }
 
-// @media (min-width: 500px) {
-//     .collapsed {
-//         width: 3.3rem;
+@media (min-width: 1000px) {
+    .sidebar__link:hover {
+        color: $white_color;
+        background-color: $secondary_color;
+    }
 
-//         & .sidebar__name,
-//         & .sidebar__logo-name {
-//             display: none;
-//         }
-//     }
+    .sidebar__logo {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
 
-//     .sidebar__link {
-//         display: inline-block;
-//         font-size: 1rem;
-//         text-decoration: none;
-//         color: #000;
-//         padding: 0.8rem 0.5rem;
-//         display: flex;
-//         background-color: $white_color;
-//         margin-bottom: 1rem;
-//         border-radius: 0.8rem;
-//     }
+    .sidebar {
+        width: 17rem;
+        height: 100%;
+        background-color: $primary_color;
+        padding: 0.5rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        overflow: hidden;
+    }
 
-//     .sidebar__logo {
-//         width: 2.5rem;
-//         height: 2.5rem;
-//         object-fit: contain;
-//         border-radius: 1rem;
-//     }
+    .collapsed {
+        width: 4.3rem;
 
-//     .sidebar {
-//         width: 14rem;
-//         height: 100%;
-//         background-color: $primary_color;
-//         padding: 0.5rem;
-//         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-//         overflow: hidden;
-//     }
-// }
+        & .sidebar__name,
+        & .sidebar__logo-name {
+            display: none;
+        }
+    }
+
+    .sidebar__link {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .sidebar__top {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $secondary_color;
+    }
+}

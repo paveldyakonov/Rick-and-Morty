@@ -3,7 +3,12 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
 import { TiContacts } from "react-icons/ti";
 import { FiMail } from "react-icons/fi";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdOutlineLocationOn } from "react-icons/md";
+import {
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+  MdOutlineLocationOn,
+  MdMenu,
+} from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
@@ -59,11 +64,8 @@ export const Sidebar = () => {
   return (
     <div ref={sidebarRef} className={classes.sidebar__wrapper}>
       <button className={classes.btn} onClick={toggleSidebarcollapse}>
-        <MdKeyboardArrowRight />
+        <MdMenu />
       </button>
-      {/* <button ref={btnRef} className={classes.btn} onClick={toggleSidebarcollapse}>
-        {isCollapsed ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
-      </button> */}
       <aside className={`${classes.sidebar} ${isCollapsed ? classes.collapsed : ""}`}>
         <div className={classes.sidebar__top}>
           <Image

@@ -1,3 +1,65 @@
+@import "@styles/variables.scss";
+
 .footer {
+    position: static;
+    border: 1px solid $secondary_color;
     margin-bottom: 0;
+    bottom: 0;
+    width: 100vw;
+    padding: 10px 30px 10px 10vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary_color;
+
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: bold;
+        color: $white_color;
+        margin: 0 0 10px;
+        padding: 0;
+        transition: ease .25s;
+    }
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: $grey_color;
+    border-radius: 10px;
+    font-size: 20px;
+    color: $white_color;
+    text-align: center;
+    line-height: 35px;
+    margin-left: 3px;
+    transition: all .25s;
+
+    &:hover {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+
+    }
+}
+
+@media (max-width: 500px) {
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+
+        &__company {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
