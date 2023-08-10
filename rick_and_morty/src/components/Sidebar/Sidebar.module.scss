@@ -1,7 +1,7 @@
 @import "@styles/variables.scss";
 
 .sidebar__wrapper {
-    padding-top: 20px;
+    margin-top: 20px;
     position: fixed;
     z-index: 100;
     height: 100vh;
@@ -69,6 +69,10 @@
 
 .sidebar__name {
     margin-left: 0.5rem;
+}
+
+body:not(body:has(.collapsed)) {
+    overflow: hidden;
 }
 
 .collapsed {

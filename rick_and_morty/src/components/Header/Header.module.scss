@@ -2,6 +2,7 @@
 
 .header {
     position: fixed;
+    z-index: 2;
     width: 100vw;
     background-color: $primary_color;
     display: flex;
@@ -41,7 +42,7 @@
         text-align: center;
         line-height: 35px;
         margin-left: 3px;
-        transition: all .25s;
+        transition: $transition25;
         border: 1px solid $grey_color;
 
         &:hover {

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import "@styles/variables.scss";
+
+:root {
+  --color-bg: #fff;
+  --color-border: #e5e7eb;
+  --color-sidebar-item: #f3f4f6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  &::-webkit-scrollbar {
+    background-color: $primary_color;
+    width: 8px;
+    border: 1px solid $white_color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary_color;
+    opacity: 0;
+    border-radius: 9em;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #eee;
+  font-family: 'Sriracha', cursive;
+  background:
+    $green_gradient,
+    url("./../../public/images/mainImage.jpg");
+  background-size: contain;
+  /* background-position: center; */
+  background-attachment: fixed;
+
+}

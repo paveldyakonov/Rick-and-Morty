@@ -1,10 +1,8 @@
 @import "@styles/variables.scss";
 
 .footer {
-    position: static;
     border: 1px solid $secondary_color;
     margin-bottom: 0;
-    bottom: 0;
     width: 100vw;
     padding: 10px 30px 10px 10vw;
     display: flex;
@@ -39,7 +37,7 @@
     text-align: center;
     line-height: 35px;
     margin-left: 3px;
-    transition: all .25s;
+    transition: $transition25;
 
     &:hover {
         transform: scale(1.1);
