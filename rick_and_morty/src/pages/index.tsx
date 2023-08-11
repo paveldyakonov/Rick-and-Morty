@@ -4,26 +4,31 @@ import { Inter } from "next/font/google";
 import classes from "@styles/pages/index.module.scss";
 import Image from "next/image";
 import { CategoryCard } from "@components/CategoryCard";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 type Category = {
   title: string;
   image: string;
+  href: string;
 };
 
 const categories: Category[] = [
   {
     title: "All Characters",
     image: "/images/categories/characters.jpg",
+    href: "/characters",
   },
   {
     title: "All Locations",
     image: "/images/categories/locations.jpg",
+    href: "/locations",
   },
   {
     title: "All Epizodes",
     image: "/images/categories/epizodes.webp",
+    href: "/epizodes",
   },
 ];
 
@@ -50,7 +55,9 @@ export default function Home() {
           </h2>
           <div className={classes.main__categories}>
             {categories.map((category) => (
-              <CategoryCard key={category.title} title={category.title} image={category.image} />
+              <Link key={category.title} href={category.href}>
+                <CategoryCard title={category.title} image={category.image} />
+              </Link>
             ))}
           </div>
         </div>

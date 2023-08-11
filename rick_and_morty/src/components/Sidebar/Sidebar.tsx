@@ -3,6 +3,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BsPeople } from "react-icons/bs";
 import { TiContacts } from "react-icons/ti";
 import { FiMail } from "react-icons/fi";
+import { HiOutlineUserGroup } from "react-icons/hi";
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
@@ -20,6 +21,11 @@ const sidebarItems = [
     name: "Home",
     href: "/",
     icon: AiOutlineHome,
+  },
+  {
+    name: "Characters",
+    href: "/characters",
+    icon: HiOutlineUserGroup,
   },
   {
     name: "Locations",
