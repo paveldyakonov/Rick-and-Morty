@@ -3,7 +3,7 @@
 .sidebar__wrapper {
     margin-top: 20px;
     position: fixed;
-    z-index: 100;
+    z-index: 120;
     height: 100vh;
     user-select: none;
 }
@@ -102,12 +102,15 @@ body:not(body:has(.collapsed)) {
     font-size: 1.1rem;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1300px) {
     .sidebar__link:hover {
         color: $white_color;
         background-color: $secondary_color;
     }
+}
 
+
+@media (min-width: 1000px) {
     .sidebar__logo {
         width: 3.5rem;
         height: 3.5rem;

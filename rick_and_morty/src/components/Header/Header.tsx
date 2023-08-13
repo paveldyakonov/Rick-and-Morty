@@ -39,14 +39,7 @@ export const Header: React.FC = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <Image
-          className={classes.logo__img}
-          src="/images/logo.png"
-          alt="logo"
-          priority
-          fill
-          sizes="(min-width: 500px) 50vw, 20vw"
-        />
+        <Image className={classes.logo__img} src="/images/logo.png" alt="logo" fill sizes="100%" />
       </div>
       <button className={classes.notification} onClick={notify}>
         {<MdNotificationsNone />}

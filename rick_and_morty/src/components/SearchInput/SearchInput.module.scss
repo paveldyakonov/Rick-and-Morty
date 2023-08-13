@@ -1,0 +1,81 @@
+@import "@styles/variables.scss";
+@import "@styles/mixins.scss";
+
+.search {
+    position: relative;
+
+    &__input {
+        box-shadow: $card-shadow;
+        border: 2px solid $primary_color;
+        padding: 12px 20px;
+        border-radius: 10px;
+        padding-left: 40px;
+        width: 300px;
+        font-size: 1em;
+        transition: border .05s ease-in-out;
+        outline: none;
+        @include fontInfo()
+    }
+
+    &__img {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 14px;
+        top: 18px;
+        opacity: 0.4;
+    }
+
+    &__cross {
+        width: 18px;
+        height: 18px;
+        opacity: 0.3;
+        position: absolute;
+        right: 15px;
+        top: 18px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .search {
+        &__input {
+            border: 2px solid $primary_color;
+            padding: 8px 16px;
+            border-radius: 10px;
+            padding-left: 40px;
+            width: 200px;
+            font-size: 0.75em;
+            transition: border .05s ease-in-out;
+            outline: none;
+            @include fontInfo()
+        }
+
+        &__img {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 14px;
+            top: 12px;
+            opacity: 0.4;
+        }
+
+        &__cross {
+            width: 15px;
+            height: 15px;
+            opacity: 0.3;
+            position: absolute;
+            right: 15px;
+            top: 13px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

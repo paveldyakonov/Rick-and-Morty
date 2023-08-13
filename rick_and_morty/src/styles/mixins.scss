@@ -1,0 +1,5 @@
+@mixin fontInfo($weight: 500) {
+    font-family: 'Sriracha', cursive;
+    font-style: normal;
+    font-weight: $weight;
+}

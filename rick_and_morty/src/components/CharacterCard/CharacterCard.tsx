@@ -26,7 +26,13 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
 
   return (
     <div className={`${classes.cards} ${classes["cards--three"]}`}>
-      <Image className={classes["img-responsive"]} src={character.image} alt={"aaaa"} fill />
+      <Image
+        className={classes["img-responsive"]}
+        src={character.image}
+        alt={character.name}
+        fill
+        sizes="100%"
+      />
       <span className={classes["cards--three__rect-1"]}>
         <span className={classes["shadow-1"]}></span>
         <p>{character.name}</p>

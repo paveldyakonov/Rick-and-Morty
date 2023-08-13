@@ -5,11 +5,30 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    //align-items: center;
 
     & .main {
         padding-top: 2rem;
         width: 100vw;
+
+        & .not_found {
+            margin: auto;
+            display: flex;
+            width: 70vw;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            &__title {
+                font-size: 2em;
+            }
+
+            &__img {
+                position: relative;
+                width: 300px;
+                height: 300px;
+            }
+        }
 
         & .h1 {
             text-align: center;
@@ -24,7 +43,7 @@
         }
 
         & .characters {
-            gap: 10px;
+            gap: 20px;
             padding: 5vw 10vw;
             display: flex;
             justify-content: center;
@@ -32,24 +51,63 @@
             flex-wrap: wrap;
 
         }
+
+        & .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        &__dropdowns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        &__filters {
+            padding: 20px 0 50px 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1300px) {
     .page {
 
         & .main {
             padding-left: 10vw;
             padding-right: 10px;
-        }
 
-        & .characters {
-            padding: 5vw 5vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+            & .characters {
+                padding: 5vw 5vw;
+                gap: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
 
+            & .pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 20px;
+                padding-left: 30px;
+            }
+
+            &__filters {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-left: 15px;
+            }
         }
     }
 }
@@ -58,6 +116,26 @@
     .page {
         & .main {
 
+            & .not_found {
+                margin: auto;
+                display: flex;
+                width: 60vw;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+
+                &__title {
+                    font-size: 1.5em;
+                }
+
+                &__img {
+                    position: relative;
+                    width: 40vw;
+                    height: 160px;
+                }
+            }
+
             & .h1,
             & .h2 {
                 font-size: 1.3em;
@@ -65,11 +143,12 @@
 
             & .characters {
                 padding: 5vw 0 5vw 10vw;
+                gap: 10px;
+                row-gap: 30px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-wrap: wrap;
-
             }
         }
     }

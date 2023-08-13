@@ -1,19 +1,27 @@
 @import "@styles/variables.scss";
 
 .card {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    & a {
+        text-decoration: none;
+        outline: none;
+    }
+
     position: relative;
     user-select: none;
     overflow: hidden;
     display: flex;
     width: 20vw;
     height: 27vw;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: $card-shadow;
     transition: $transition25;
 
     &:hover {
         cursor: pointer;
         box-shadow: $card-hover-shadow;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
     &__title {

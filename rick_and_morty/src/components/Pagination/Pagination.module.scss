@@ -1,0 +1,52 @@
+@import "@styles/variables.scss";
+
+.root {
+    display: flex;
+    gap: 5px;
+    list-style-type: none;
+    flex-wrap: wrap;
+
+    & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30%;
+        cursor: pointer;
+        color: $primary_color;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid $primary_color;
+        transition: $transition25;
+
+        &:hover {
+            color: $secondary_color;
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+        }
+    }
+
+    :global {
+        .selected {
+            & a {
+                color: $white_color;
+                background-color: $secondary_color;
+                transition: $transition25;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .root {
+        gap: 0;
+
+        & a {
+            padding: 10px;
+            font-size: 1em;
+            width: 2.2em;
+            height: 2.2em;
+        }
+    }
+}

@@ -5,6 +5,9 @@ import classes from "@styles/pages/index.module.scss";
 import Image from "next/image";
 import { CategoryCard } from "@components/CategoryCard";
 import Link from "next/link";
+import React from "react";
+
+import { motion, Variants } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +15,22 @@ type Category = {
   title: string;
   image: string;
   href: string;
+};
+
+const cardVariants: Variants = {
+  offscreen: {
+    y: 300,
+    rotate: -10,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
 };
 
 const categories: Category[] = [
@@ -55,9 +74,19 @@ export default function Home() {
           </h2>
           <div className={classes.main__categories}>
             {categories.map((category) => (
-              <Link key={category.title} href={category.href}>
-                <CategoryCard title={category.title} image={category.image} />
-              </Link>
+              <motion.div
+                key={category.title}
+                className="card-container"
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+              >
+                <motion.div className="card" variants={cardVariants}>
+                  <Link href={category.href}>
+                    <CategoryCard title={category.title} image={category.image} />
+                  </Link>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </div>
