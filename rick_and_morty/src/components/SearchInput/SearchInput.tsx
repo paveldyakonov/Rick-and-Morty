@@ -65,7 +65,7 @@ export const SearchInput: React.FC<Props> = ({ title }) => {
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeInput(event.target.value)}
         className={classes.search__input}
         type="text"
-        placeholder={`Search ${title}`}
+        placeholder={`Find ${title}`}
       />
       {value && (
         <Image

@@ -1,46 +1,52 @@
 import { Dropdown } from "@components/Dropdown";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import classes from "./StatusDropdown.module.scss";
-
-import { filterValues } from "@/config/filter";
 import { useRouter } from "next/router";
 
-export const StatusDropdown: React.FC = () => {
+type Props = {
+  values: string[];
+  queryParam: string;
+};
+
+export const IndexDropdown: React.FC<Props> = ({ values, queryParam }) => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
-  let value: string | string[] = router.query.status || "0";
+  let value: string | string[] = router.query[queryParam] || "0";
   if (typeof value !== "string") {
     value = value[0];
   }
 
-  if (parseInt(value) >= filterValues.length) {
+  if (Number(value) && Number(value) >= values.length) {
     value = "0";
   }
-  const [selected, setSelected] = useState(filterValues[parseInt(value)]);
+  if (!Number(value)) {
+    value = "0";
+  }
+
+  const [selected, setSelected] = useState(values[Number(value)]);
 
   useEffect(() => {
     if (typeof value !== "string") {
       value = value[0];
     }
-    setSelected(filterValues[parseInt(value)]);
+    setSelected(values[Number(value)]);
   }, [value]);
 
   const setStatusInQuery = (value: string) => {
     router.push({
       pathname: router.pathname,
-      query: { ...router.query, page: 1, status: value },
+      query: { ...router.query, page: 1, [queryParam]: value },
     });
   };
 
   return (
-    <div className={classes.filter}>
+    <div>
       <Dropdown
-        sortValues={filterValues}
+        sortValues={values}
         selected={selected}
         setSelected={(index: number) => {
-          setSelected(filterValues[index]);
+          setSelected(values[index]);
           setStatusInQuery(String(index));
         }}
         isVisible={isVisible}

@@ -3,12 +3,18 @@ import Head from "next/head";
 import { GetServerSideProps } from "next";
 
 import classes from "@styles/pages/characters.module.scss";
-import { Character, Characters } from "@/types/character";
+import { Characters } from "@/types/character";
 import axios from "axios";
 import { API_ENDPOINTS } from "@/config/api";
 import { CharacterCard } from "@components/CharacterCard";
 import { filterValues, genderValues } from "@/config/filter";
 import Image from "next/image";
+
+import { motion, Variants } from "framer-motion";
+import { Pagination } from "@components/Pagination";
+import { SearchInput } from "@components/SearchInput";
+import { ParsedUrlQuery } from "querystring";
+import { IndexDropdown } from "@components/IndexDropdown";
 
 type Props = {
   characters: Characters;
@@ -22,20 +28,15 @@ type queryParams = {
   gender: string;
 };
 
-import { motion, Variants } from "framer-motion";
-import { Pagination } from "@components/Pagination";
-import { SearchInput } from "@components/SearchInput";
-import { StatusDropdown } from "@components/StatusDropdown";
-import { ParsedUrlQuery } from "querystring";
-import { GenderDropdown } from "@components/GenderDropdown";
-
 const cardVariants: Variants = {
   offscreen: {
     y: 300,
+    opacity: 0,
     rotate: 0,
   },
   onscreen: {
     y: 0,
+    opacity: 1,
     rotate: 0,
     transition: {
       type: "spring",
@@ -59,8 +60,8 @@ export default function Characters({ characters, forcePage }: Props) {
           <div className={classes.main__filters}>
             <SearchInput title="character" />
             <div className={classes.main__dropdowns}>
-              <StatusDropdown />
-              <GenderDropdown />
+              <IndexDropdown values={filterValues} queryParam="status" />
+              <IndexDropdown values={genderValues} queryParam="gender" />
             </div>
           </div>
           {characters && (

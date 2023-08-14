@@ -20,10 +20,12 @@ type Category = {
 const cardVariants: Variants = {
   offscreen: {
     y: 300,
+    opacity: 0,
     rotate: -10,
   },
   onscreen: {
     y: 0,
+    opacity: 1,
     rotate: 0,
     transition: {
       type: "spring",
