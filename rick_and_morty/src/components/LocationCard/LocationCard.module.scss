@@ -256,12 +256,12 @@
 
         &__rect-1 {
             background: $white_color;
-            width: 65px;
-            height: 60px;
+            width: 100px;
+            height: 70px;
             transform: skewX(-20deg);
             display: block;
             position: absolute;
-            top: 65%;
+            top: 70%;
             opacity: .9;
             left: -100%;
             z-index: 8;

@@ -4,7 +4,6 @@ import { GetServerSideProps } from "next";
 
 import classes from "@styles/pages/characters.module.scss";
 import { Characters } from "@/types/character";
-import axios from "axios";
 import { API_ENDPOINTS } from "@/config/api";
 import { CharacterCard } from "@components/CharacterCard";
 import { filterValues, genderValues } from "@/config/filter";
@@ -13,19 +12,12 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { Pagination } from "@components/Pagination";
 import { SearchInput } from "@components/SearchInput";
-import { ParsedUrlQuery } from "querystring";
 import { IndexDropdown } from "@components/IndexDropdown";
+import { getCharacters, getRouterParams } from "@/utils/getCharacters";
 
 type Props = {
   characters: Characters;
   forcePage: number;
-};
-
-type queryParams = {
-  page: number;
-  name: string;
-  status: string;
-  gender: string;
 };
 
 const cardVariants: Variants = {
@@ -101,59 +93,12 @@ export default function Characters({ characters, forcePage }: Props) {
   );
 }
 
-const getRouterParams = (query: ParsedUrlQuery): queryParams => {
-  let forcePage: string | string[] = query.page || "1";
-  let characterName: string | string[] = query.name || "";
-  let status: string | string[] = query.status || "0";
-  let gender: string | string[] = query.gender || "0";
-
-  if (typeof forcePage !== "string") {
-    forcePage = forcePage[0];
-  }
-  if (typeof characterName !== "string") {
-    characterName = characterName[0];
-  }
-  if (typeof status !== "string") {
-    status = status[0];
-  }
-  if (typeof gender !== "string") {
-    gender = gender[0];
-  }
-
-  if (parseInt(status) >= filterValues.length) {
-    status = "0";
-  }
-  if (parseInt(gender) >= genderValues.length) {
-    gender = "0";
-  }
-
-  const params: queryParams = {
-    page: parseInt(forcePage),
-    name: characterName,
-    status: status === "0" ? "" : filterValues[parseInt(status)],
-    gender: gender === "0" ? "" : genderValues[parseInt(gender)],
-  };
-
-  return params;
-};
-
 export const getServerSideProps: GetServerSideProps<{
   characters: Characters | null;
   forcePage: number;
 }> = async ({ query }) => {
-  let characters: Characters | null = null;
-  const params: queryParams = getRouterParams(query);
-
-  try {
-    const result = await axios<Characters>({
-      method: "GET",
-      url: API_ENDPOINTS.CHARACTERS,
-      params: params,
-    });
-    characters = result.data;
-  } catch (error: any) {
-    console.log(error);
-  }
+  const params = getRouterParams(query);
+  const characters: Characters | null = await getCharacters(API_ENDPOINTS.CHARACTERS, params);
 
   return {
     props: {

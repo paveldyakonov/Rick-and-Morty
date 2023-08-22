@@ -1,11 +1,12 @@
 @import "@styles/variables.scss";
 
 .sidebar__wrapper {
-    margin-top: 20px;
+    padding-top: 20px;
     position: fixed;
     z-index: 120;
     height: 100vh;
     user-select: none;
+    //box-shadow: $card-shadow;
 }
 
 .sidebar {
@@ -15,7 +16,6 @@
     padding: 0.5rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     overflow: hidden;
-    box-shadow: $box-shadow;
 }
 
 .sidebar__top {
@@ -73,6 +73,10 @@
 
 body:not(body:has(.collapsed)) {
     overflow: hidden;
+
+    & .sidebar__wrapper {
+        box-shadow: $card-shadow;
+    }
 }
 
 .collapsed {

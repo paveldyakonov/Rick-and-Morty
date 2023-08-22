@@ -18,6 +18,7 @@ type Props = {
 
 type queryParams = {
   page: number;
+  name: string;
 };
 
 const cardVariants: Variants = {
@@ -51,10 +52,6 @@ export default function Locations({ locations, forcePage }: Props) {
           <h1 className={classes.h1}>All Locations</h1>
           <div className={classes.main__filters}>
             <SearchInput title="location" />
-            {/* <div className={classes.main__dropdowns}>
-              <IndexDropdown values={filterValues} queryParam="status" />
-              <IndexDropdown values={genderValues} queryParam="gender" />
-            </div> */}
           </div>
           {locations && (
             <>
@@ -96,13 +93,18 @@ export default function Locations({ locations, forcePage }: Props) {
 
 const getRouterParams = (query: ParsedUrlQuery): queryParams => {
   let forcePage: string | string[] = query.page || "1";
+  let name: string | string[] = query.name || "";
 
   if (typeof forcePage !== "string") {
     forcePage = forcePage[0];
   }
+  if (typeof name !== "string") {
+    name = name[0];
+  }
 
   const params: queryParams = {
     page: parseInt(forcePage),
+    name: name,
   };
 
   return params;

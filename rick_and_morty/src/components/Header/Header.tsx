@@ -6,14 +6,16 @@ import classes from "./Header.module.scss";
 import { toast } from "react-toastify";
 
 const Notifications = [
-  "You look so nice today!",
-  "Your smile is contagious!",
-  "You have the best laugh!",
-  "You have a great sense of humor",
-  "You light up the room",
-  "Hello, Rick respects you",
-  "Colors seem brighter when you're around!",
-  "Jokes are funnier when you tell them",
+  "There is a theory that Rick killed his original Morty and as a result travelled to another dimension to find a new Morty who he will never let leave his side. Many fans believe this Evil Morty is the original Morty that Rick thinks he accidentally killed and Evil Morty is secretly planning his revenge on Rick.",
+  "The Creators Didn’t Know Which Beth Was The Clone",
+  "The theme song for Rick and Morty is a parody mix of ‘Doctor Who’ and ‘Tintin.’",
+  "Rick and Morty were featured in The Simpsons couch gag for the last episode of season 26. It’s a mini story and can be seen on youtube.",
+  "Rick Is Afraid Of Pirates",
+  "Each one of Rick’s characteristic burps is a real burp",
+  "THE SHOW WAS INSPIRED BY ROILAND’S VULGAR TAKE ON BACK TO THE FUTURE.",
+  "When traveling in cars Rick never wears a seatbelt, while all the other characters do.",
+  "In the Gravity Falls episode “Society of the Blind Eye” Grunkle Stan’s coffee mug with a question mark, pen, and notebook are sucked into a portal that supposedly will open a gateway to countless new worlds. You can see these items pop out of one of the portals during “Close Rick-counters of the Rick Kind.”",
+  "Justin Roiland and Dan Harman sold the series and wrote the pilot in one day",
 ];
 
 export const Header: React.FC = () => {
