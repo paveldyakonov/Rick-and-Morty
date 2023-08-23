@@ -13,7 +13,7 @@ import { motion, Variants } from "framer-motion";
 import { Pagination } from "@components/Pagination";
 import { SearchInput } from "@components/SearchInput";
 import { IndexDropdown } from "@components/IndexDropdown";
-import { getCharacters, getRouterParams } from "@/utils/getCharacters";
+import { getCharacters, getCharactersRouterParams } from "@/utils/getCharacters";
 
 type Props = {
   characters: Characters;
@@ -97,7 +97,7 @@ export const getServerSideProps: GetServerSideProps<{
   characters: Characters | null;
   forcePage: number;
 }> = async ({ query }) => {
-  const params = getRouterParams(query);
+  const params = getCharactersRouterParams(query);
   const characters: Characters | null = await getCharacters(API_ENDPOINTS.CHARACTERS, params);
 
   return {

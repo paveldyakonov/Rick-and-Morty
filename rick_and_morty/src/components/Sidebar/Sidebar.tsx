@@ -1,18 +1,13 @@
 import Image from "next/image";
 import { AiOutlineHome } from "react-icons/ai";
-import { BsPeople } from "react-icons/bs";
 import { TiContacts } from "react-icons/ti";
 import { FiMail } from "react-icons/fi";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import {
-  MdKeyboardArrowLeft,
-  MdKeyboardArrowRight,
-  MdOutlineLocationOn,
-  MdMenu,
-} from "react-icons/md";
+import { MdOutlineLocationOn, MdMenu } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import { PiTelevisionSimpleBold } from "react-icons/pi";
 
 import classes from "./Sidebar.module.scss";
 
@@ -33,14 +28,9 @@ const sidebarItems = [
     icon: MdOutlineLocationOn,
   },
   {
-    name: "Mails",
-    href: "/mails",
-    icon: FiMail,
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-    icon: TiContacts,
+    name: "Episodes",
+    href: "/episodes",
+    icon: PiTelevisionSimpleBold,
   },
 ];
 
@@ -73,16 +63,18 @@ export const Sidebar = () => {
         <MdMenu />
       </button>
       <aside className={`${classes.sidebar} ${isCollapsed ? classes.collapsed : ""}`}>
-        <div className={classes.sidebar__top}>
-          <Image
-            width={80}
-            height={80}
-            className={classes.sidebar__logo}
-            src="/images/logo2.png"
-            alt="logo"
-          />
-          <p className={classes["sidebar__logo-name"]}>Rick and Morty</p>
-        </div>
+        <Link className={classes.sidebar__top_link} href={"/"} onClick={onLinkClickHandler}>
+          <div className={classes.sidebar__top}>
+            <Image
+              width={80}
+              height={80}
+              className={classes.sidebar__logo}
+              src="/images/logo2.png"
+              alt="logo"
+            />
+            <p className={classes["sidebar__logo-name"]}>Rick and Morty</p>
+          </div>
+        </Link>
         <ul className={classes.sidebar__list}>
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (

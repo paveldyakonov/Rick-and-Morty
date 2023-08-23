@@ -1,15 +1,9 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-
 import classes from "@styles/pages/index.module.scss";
-import Image from "next/image";
 import { CategoryCard } from "@components/CategoryCard";
 import Link from "next/link";
 import React from "react";
-
 import { motion, Variants } from "framer-motion";
-
-const inter = Inter({ subsets: ["latin"] });
 
 type Category = {
   title: string;
@@ -47,9 +41,9 @@ const categories: Category[] = [
     href: "/locations",
   },
   {
-    title: "All Epizodes",
+    title: "All Episodes",
     image: "/images/categories/epizodes.webp",
-    href: "/epizodes",
+    href: "/episodes",
   },
 ];
 

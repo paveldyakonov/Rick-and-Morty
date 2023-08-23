@@ -10,7 +10,7 @@ type queryParams = {
   gender: string;
 };
 
-export const getRouterParams = (query: ParsedUrlQuery): queryParams => {
+export const getCharactersRouterParams = (query: ParsedUrlQuery): queryParams => {
   let forcePage: string | string[] = query.page || "1";
   let characterName: string | string[] = query.name || "";
   let status: string | string[] = query.status || "0";

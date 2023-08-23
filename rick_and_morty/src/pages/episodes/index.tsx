@@ -1,17 +1,19 @@
 import { API_ENDPOINTS } from "@/config/api";
-import { Locations } from "@/types/location";
 import { Variants, motion } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import classes from "@styles/pages/locations.module.scss";
+import classes from "@styles/pages/episodes.module.scss";
 import { SearchInput } from "@components/SearchInput";
-import { LocationCard } from "@components/LocationCard";
 import { Pagination } from "@components/Pagination";
 import Image from "next/image";
-import { getLocations, getLocationsRouterParams } from "@/utils/getLocations";
+import { Episodes } from "@/types/episode";
+import { getEpisodes, getEpisodesRouterParams } from "@/utils/getEpisodes";
+import { EpisodeCard } from "@components/EpisodeCard";
+import { IndexDropdown } from "@components/IndexDropdown";
+import { seasonValues } from "@/config/filter";
 
 type Props = {
-  locations: Locations;
+  episodes: Episodes;
   forcePage: number;
 };
 
@@ -33,44 +35,45 @@ const cardVariants: Variants = {
   },
 };
 
-export default function Locations({ locations, forcePage }: Props) {
+export default function Episodes({ episodes, forcePage }: Props) {
   return (
     <>
       <Head>
-        <title>Rick-and-Morty | Locations</title>
-        <meta name="description" content="Rick-and-Morty all locations" />
+        <title>Rick-and-Morty | Episodes</title>
+        <meta name="description" content="Rick-and-Morty all episodes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className={classes.page}>
         <div className={classes.main}>
-          <h1 className={classes.h1}>All Locations</h1>
+          <h1 className={classes.h1}>All Episodes</h1>
           <div className={classes.main__filters}>
-            <SearchInput title="location" />
+            <SearchInput title="episode" />
+            <IndexDropdown values={seasonValues} queryParam={"season"} />
           </div>
-          {locations && (
+          {episodes && (
             <>
               <h2 className={classes.h2}>Tap on card for more information</h2>
-              <div className={classes.locations}>
-                {locations.results.map((location) => (
+              <div className={classes.episodes}>
+                {episodes.results.map((episode) => (
                   <motion.div
-                    key={location.id}
+                    key={episode.id}
                     className="card-container"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.8 }}
                   >
                     <motion.div className="card" variants={cardVariants}>
-                      <LocationCard location={location} />
+                      <EpisodeCard episode={episode} />
                     </motion.div>
                   </motion.div>
                 ))}
               </div>
               <div className={classes.pagination}>
-                <Pagination pageCount={locations.info.pages} forcePage={forcePage} />
+                <Pagination pageCount={episodes.info.pages} forcePage={forcePage} />
               </div>
             </>
           )}
-          {!locations && (
+          {!episodes && (
             <div className={classes.not_found}>
               <p className={classes.not_found__title}>Sorry, nothing was found :(</p>
               <div className={classes.not_found__img}>
@@ -85,15 +88,15 @@ export default function Locations({ locations, forcePage }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<{
-  locations: Locations | null;
+  episodes: Episodes | null;
   forcePage: number;
 }> = async ({ query }) => {
-  const params = getLocationsRouterParams(query);
-  const locations: Locations | null = await getLocations(API_ENDPOINTS.LOCATIONS, params);
+  const params = getEpisodesRouterParams(query);
+  const episodes: Episodes | null = await getEpisodes(API_ENDPOINTS.EPISODES, params);
 
   return {
     props: {
-      locations,
+      episodes,
       forcePage: params.page - 1,
     },
   };

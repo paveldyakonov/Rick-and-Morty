@@ -6,7 +6,6 @@
     z-index: 120;
     height: 100vh;
     user-select: none;
-    //box-shadow: $card-shadow;
 }
 
 .sidebar {
@@ -19,6 +18,10 @@
 }
 
 .sidebar__top {
+    &_link {
+        text-decoration: none;
+    }
+
     width: max-content;
     display: flex;
     align-items: center;
@@ -28,17 +31,26 @@
     border-bottom: 1px solid $secondary_color;
 }
 
+.sidebar__top:hover .sidebar__logo,
+.sidebar__top:hover .sidebar__logo-name {
+    color: $secondary_color;
+    transform: scale(1.1);
+
+}
+
 .sidebar__logo {
     width: 2.5rem;
     height: 2.5rem;
     object-fit: contain;
     border-radius: 1rem;
+    transition: $transition25;
 }
 
 .sidebar__logo-name {
     font-size: 1.2rem;
     font-weight: 600;
     color: $white_color;
+    transition: $transition25;
 }
 
 .sidebar__list {
