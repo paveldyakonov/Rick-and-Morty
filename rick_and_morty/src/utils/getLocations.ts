@@ -1,4 +1,4 @@
-import { Locations } from "@/types/location";
+import { Locations, Location } from "@/types/location";
 import axios from "axios";
 import { ParsedUrlQuery } from "querystring";
 
@@ -33,6 +33,20 @@ export const getLocations = async (endpoint: string, params: queryParams) => {
       url: endpoint,
       params: params,
     });
+    const data = result.data;
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getSingleLocation = async (endpoint: string) => {
+  try {
+    const result = await axios<Location>({
+      method: "GET",
+      url: endpoint,
+    });
+
     const data = result.data;
     return data;
   } catch (error) {

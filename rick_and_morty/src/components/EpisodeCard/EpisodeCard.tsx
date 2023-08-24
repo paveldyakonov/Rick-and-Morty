@@ -6,6 +6,7 @@ import { IconContext } from "react-icons";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import React, { useState } from "react";
 import { Episode } from "@/types/episode";
+import { BsArrowUpCircle } from "react-icons/bs";
 
 type Props = {
   episode: Episode;
@@ -36,6 +37,12 @@ export const EpisodeCard: React.FC<Props> = ({ episode }) => {
         <br />
         <span className={classes["type"]}>{episode.air_date}</span>
       </span>
+      <span className={classes["cards--three__circle2"]}></span>
+      <IconContext.Provider value={{ className: `${classes.moreinfo_icon}`, size: "1.5em" }}>
+        <div>
+          <BsArrowUpCircle />
+        </div>
+      </IconContext.Provider>
       <span className={classes["cards--three__circle"]}></span>
       <ul className={classes["cards--three__list"]}>
         <li>

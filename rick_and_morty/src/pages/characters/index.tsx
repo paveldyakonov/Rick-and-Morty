@@ -9,33 +9,15 @@ import { CharacterCard } from "@components/CharacterCard";
 import { filterValues, genderValues } from "@/config/filter";
 import Image from "next/image";
 
-import { motion, Variants } from "framer-motion";
 import { Pagination } from "@components/Pagination";
 import { SearchInput } from "@components/SearchInput";
 import { IndexDropdown } from "@components/IndexDropdown";
 import { getCharacters, getCharactersRouterParams } from "@/utils/getCharacters";
+import { MotionContainer } from "@components/MotionContainer";
 
 type Props = {
   characters: Characters;
   forcePage: number;
-};
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 300,
-    opacity: 0,
-    rotate: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
 };
 
 export default function Characters({ characters, forcePage }: Props) {
@@ -58,20 +40,12 @@ export default function Characters({ characters, forcePage }: Props) {
           </div>
           {characters && (
             <>
-              <h2 className={classes.h2}>Tap on card for more information</h2>
+              <h2 className={classes.h2}>Tap on arrow for more information</h2>
               <div className={classes.characters}>
                 {characters.results.map((character) => (
-                  <motion.div
-                    key={character.id}
-                    className="card-container"
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
-                  >
-                    <motion.div className="card" variants={cardVariants}>
-                      <CharacterCard character={character} />
-                    </motion.div>
-                  </motion.div>
+                  <MotionContainer key={character.id} customKey={character.id}>
+                    <CharacterCard character={character} />
+                  </MotionContainer>
                 ))}
               </div>
               <div className={classes.pagination}>

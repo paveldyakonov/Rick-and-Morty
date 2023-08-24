@@ -1,5 +1,5 @@
 import { filterValues, genderValues } from "@/config/filter";
-import { Characters } from "@/types/character";
+import { Character, Characters } from "@/types/character";
 import axios from "axios";
 import { ParsedUrlQuery } from "querystring";
 
@@ -53,6 +53,20 @@ export const getCharacters = async (endpoint: string, params: queryParams) => {
       url: endpoint,
       params: params,
     });
+    const data = result.data;
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getSingleCharacter = async (endpoint: string) => {
+  try {
+    const result = await axios<Character>({
+      method: "GET",
+      url: endpoint,
+    });
+
     const data = result.data;
     return data;
   } catch (error) {

@@ -31,11 +31,15 @@
     border-bottom: 1px solid $secondary_color;
 }
 
-.sidebar__top:hover .sidebar__logo,
-.sidebar__top:hover .sidebar__logo-name {
-    color: $secondary_color;
-    transform: scale(1.1);
+.sidebar__top:hover {
+    & .sidebar__logo {
+        transform: scale(1.1);
+    }
 
+    & .sidebar__logo-name {
+        color: $secondary_color;
+        transform: scale(1.1);
+    }
 }
 
 .sidebar__logo {

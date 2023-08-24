@@ -1,3 +1,9 @@
+export enum Status {
+  dead = "Dead",
+  alive = "Alive",
+  unknown = "unknown",
+}
+
 type Location = {
   name: string;
   url: string;
@@ -18,7 +24,7 @@ type Info = {
 export type Character = {
   id: number;
   name: string;
-  status: string;
+  status: Status;
   species: string;
   type: string;
   gender: string;

@@ -1,5 +1,4 @@
 import { API_ENDPOINTS } from "@/config/api";
-import { Variants, motion } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import classes from "@styles/pages/episodes.module.scss";
@@ -11,28 +10,11 @@ import { getEpisodes, getEpisodesRouterParams } from "@/utils/getEpisodes";
 import { EpisodeCard } from "@components/EpisodeCard";
 import { IndexDropdown } from "@components/IndexDropdown";
 import { seasonValues } from "@/config/filter";
+import { MotionContainer } from "@components/MotionContainer";
 
 type Props = {
   episodes: Episodes;
   forcePage: number;
-};
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 300,
-    opacity: 0,
-    rotate: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
 };
 
 export default function Episodes({ episodes, forcePage }: Props) {
@@ -52,20 +34,12 @@ export default function Episodes({ episodes, forcePage }: Props) {
           </div>
           {episodes && (
             <>
-              <h2 className={classes.h2}>Tap on card for more information</h2>
+              <h2 className={classes.h2}>Tap on arrow for more information</h2>
               <div className={classes.episodes}>
                 {episodes.results.map((episode) => (
-                  <motion.div
-                    key={episode.id}
-                    className="card-container"
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
-                  >
-                    <motion.div className="card" variants={cardVariants}>
-                      <EpisodeCard episode={episode} />
-                    </motion.div>
-                  </motion.div>
+                  <MotionContainer key={episode.id} customKey={episode.id}>
+                    <EpisodeCard episode={episode} />
+                  </MotionContainer>
                 ))}
               </div>
               <div className={classes.pagination}>

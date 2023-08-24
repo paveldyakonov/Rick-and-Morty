@@ -1,6 +1,5 @@
 import { API_ENDPOINTS } from "@/config/api";
 import { Locations } from "@/types/location";
-import { Variants, motion } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import classes from "@styles/pages/locations.module.scss";
@@ -9,28 +8,11 @@ import { LocationCard } from "@components/LocationCard";
 import { Pagination } from "@components/Pagination";
 import Image from "next/image";
 import { getLocations, getLocationsRouterParams } from "@/utils/getLocations";
+import { MotionContainer } from "@components/MotionContainer";
 
 type Props = {
   locations: Locations;
   forcePage: number;
-};
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 300,
-    opacity: 0,
-    rotate: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
 };
 
 export default function Locations({ locations, forcePage }: Props) {
@@ -49,20 +31,12 @@ export default function Locations({ locations, forcePage }: Props) {
           </div>
           {locations && (
             <>
-              <h2 className={classes.h2}>Tap on card for more information</h2>
+              <h2 className={classes.h2}>Tap on arrow for more information</h2>
               <div className={classes.locations}>
                 {locations.results.map((location) => (
-                  <motion.div
-                    key={location.id}
-                    className="card-container"
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
-                  >
-                    <motion.div className="card" variants={cardVariants}>
-                      <LocationCard location={location} />
-                    </motion.div>
-                  </motion.div>
+                  <MotionContainer key={location.id} customKey={location.id}>
+                    <LocationCard location={location} />
+                  </MotionContainer>
                 ))}
               </div>
               <div className={classes.pagination}>

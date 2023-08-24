@@ -1,4 +1,4 @@
-import { Episodes } from "@/types/episode";
+import { Episode, Episodes } from "@/types/episode";
 import axios from "axios";
 import { ParsedUrlQuery } from "querystring";
 
@@ -38,6 +38,32 @@ export const getEpisodes = async (endpoint: string, params: queryParams) => {
       method: "GET",
       url: endpoint,
       params: params,
+    });
+    const data = result.data;
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getArrayOfEpisodes = async (endpoint: string) => {
+  try {
+    const result = await axios<Episode[]>({
+      method: "GET",
+      url: endpoint,
+    });
+    const data = result.data;
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getSingleEpisode = async (endpoint: string) => {
+  try {
+    const result = await axios<Episode>({
+      method: "GET",
+      url: endpoint,
     });
     const data = result.data;
     return data;

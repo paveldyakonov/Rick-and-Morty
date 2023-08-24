@@ -4,6 +4,7 @@ import classes from "./LocationCard.module.scss";
 
 import { IconContext } from "react-icons";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import { BsArrowUpCircle } from "react-icons/bs";
 import React, { useState } from "react";
 import { Location } from "@/types/location";
 
@@ -34,6 +35,12 @@ export const LocationCard: React.FC<Props> = ({ location }) => {
         <p className={classes["location"]}>Dimension:</p>
         <span className={classes["location-name"]}>{location.dimension}</span>
       </span>
+      <span className={classes["cards--three__circle2"]}></span>
+      <IconContext.Provider value={{ className: `${classes.moreinfo_icon}`, size: "1.5em" }}>
+        <div>
+          <BsArrowUpCircle />
+        </div>
+      </IconContext.Provider>
       <span className={classes["cards--three__circle"]}></span>
       <ul className={classes["cards--three__list"]}>
         <li>

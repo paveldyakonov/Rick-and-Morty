@@ -6,16 +6,13 @@ import { IconContext } from "react-icons";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { useState } from "react";
 import { Character } from "@/types/character";
+import { BsArrowUpCircle } from "react-icons/bs";
+import { Status } from "@/types/character";
+import Link from "next/link";
 
 type Props = {
   character: Character;
 };
-
-enum Status {
-  dead = "Dead",
-  alive = "Alive",
-  unknown = "unknown",
-}
 
 export const CharacterCard: React.FC<Props> = ({ character }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -57,6 +54,14 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
         <p className={classes["location"]}>Origin Location:</p>
         <span className={classes["location-name"]}>{character.origin.name}</span>
       </span>
+      <span className={classes["cards--three__circle2"]}></span>
+      <Link href={`/characters/${character.id}`}>
+        <IconContext.Provider value={{ className: `${classes.moreinfo_icon}`, size: "1.2em" }}>
+          <div>
+            <BsArrowUpCircle />
+          </div>
+        </IconContext.Provider>
+      </Link>
       <span className={classes["cards--three__circle"]}></span>
       <ul className={classes["cards--three__list"]}>
         <li>
