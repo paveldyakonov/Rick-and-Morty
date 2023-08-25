@@ -3,7 +3,6 @@ import React from "react";
 
 type Props = {
   children: React.ReactNode;
-  customKey: string | number;
 };
 
 const cardVariants: Variants = {
@@ -24,10 +23,9 @@ const cardVariants: Variants = {
   },
 };
 
-export const MotionContainer: React.FC<Props> = ({ children, customKey }) => {
+export const MotionContainer: React.FC<Props> = ({ children }) => {
   return (
     <motion.div
-      key={customKey}
       className="card-container"
       initial="offscreen"
       whileInView="onscreen"

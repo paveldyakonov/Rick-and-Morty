@@ -34,7 +34,7 @@ export default function Locations({ locations, forcePage }: Props) {
               <h2 className={classes.h2}>Tap on arrow for more information</h2>
               <div className={classes.locations}>
                 {locations.results.map((location) => (
-                  <MotionContainer key={location.id} customKey={location.id}>
+                  <MotionContainer key={location.id}>
                     <LocationCard location={location} />
                   </MotionContainer>
                 ))}

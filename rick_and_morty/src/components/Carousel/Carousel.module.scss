@@ -1,0 +1,33 @@
+@import "@styles/variables.scss";
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 60vw;
+}
+
+.swiper {
+    width: 90%;
+}
+
+@media (min-width: 1600px) {
+    .carousel {
+        width: 80vw;
+    }
+
+    .swiper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .carousel {
+        width: 80vw;
+    }
+
+    .swiper {
+        width: 90%;
+    }
+}

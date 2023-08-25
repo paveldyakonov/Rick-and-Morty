@@ -1,0 +1,123 @@
+@import "@styles/variables.scss";
+
+.tooltip-trigger {
+    text-align: center;
+    position: relative;
+    font-size: 0.8em;
+
+    & .tooltip {
+        display: none;
+    }
+
+    &:hover .tooltip {
+        display: none;
+    }
+}
+
+@media (min-width: 1300px) {
+    .tooltip-trigger {
+        text-align: center;
+        position: relative;
+        font-size: 0.8em;
+
+        & .tooltip {
+            display: none;
+            width: max-content;
+            height: max-content;
+            background-color: $white_color;
+            border: 1px solid $secondary_color;
+            color: $secondary_color;
+            text-align: center;
+            border-radius: 6px;
+            padding: 2px;
+            transition: $transition25;
+            position: absolute;
+            z-index: 100;
+            box-shadow: $card-shadow;
+
+            &__content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &__img {
+                position: relative;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &:hover .tooltip {
+            display: block;
+        }
+    }
+
+    .tooltip-right {
+        top: -5px;
+        left: 105%;
+    }
+
+
+    .tooltip-left {
+        top: -5px;
+        right: 105%;
+    }
+
+    .tooltip-top {
+        bottom: 105%;
+        left: -10px;
+    }
+
+    .tooltip-bottom {
+        top: 105%;
+        right: 5px;
+    }
+
+    .tooltip-trigger .tooltip-top::after {
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 40%;
+        margin-left: -5px;
+        border-width: 7px;
+        border-style: solid;
+        border-color: $secondary_color transparent transparent transparent;
+    }
+
+
+    .tooltip-trigger .tooltip-bottom::after {
+        content: " ";
+        position: absolute;
+        bottom: 100%;
+        left: 90%;
+        margin-left: -5px;
+        border-width: 7px;
+        border-style: solid;
+        border-color: transparent transparent $secondary_color transparent;
+    }
+
+
+    .tooltip-trigger .tooltip-right::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent $secondary_color transparent transparent;
+    }
+
+
+    .tooltip-trigger .tooltip-left::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent $secondary_color ;
+    }
+}

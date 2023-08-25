@@ -1,12 +1,10 @@
 import Image from "next/image";
 import { AiOutlineHome } from "react-icons/ai";
-import { TiContacts } from "react-icons/ti";
-import { FiMail } from "react-icons/fi";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { MdOutlineLocationOn, MdMenu } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PiTelevisionSimpleBold } from "react-icons/pi";
 
 import classes from "./Sidebar.module.scss";
@@ -78,7 +76,12 @@ export const Sidebar = () => {
         <ul className={classes.sidebar__list}>
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
-              <li className={classes.sidebar__item} key={name} onClick={onLinkClickHandler}>
+              <li
+                key={name}
+                className={classes.sidebar__item}
+                onClick={onLinkClickHandler}
+                id={`Tooltip${name}`}
+              >
                 <Link
                   className={`${classes.sidebar__link} ${
                     router.pathname === href ? classes["sidebar__link--active"] : ""

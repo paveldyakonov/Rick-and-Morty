@@ -60,6 +60,19 @@ export const getCharacters = async (endpoint: string, params: queryParams) => {
   }
 };
 
+export const getArrayOfCharacters = async (endpoint: string) => {
+  try {
+    const result = await axios<Character[]>({
+      method: "GET",
+      url: endpoint,
+    });
+    const data = result.data;
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const getSingleCharacter = async (endpoint: string) => {
   try {
     const result = await axios<Character>({

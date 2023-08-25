@@ -14,6 +14,7 @@ import { SearchInput } from "@components/SearchInput";
 import { IndexDropdown } from "@components/IndexDropdown";
 import { getCharacters, getCharactersRouterParams } from "@/utils/getCharacters";
 import { MotionContainer } from "@components/MotionContainer";
+import { Position, Tooltip } from "@components/Tooltip";
 
 type Props = {
   characters: Characters;
@@ -34,8 +35,12 @@ export default function Characters({ characters, forcePage }: Props) {
           <div className={classes.main__filters}>
             <SearchInput title="character" />
             <div className={classes.main__dropdowns}>
-              <IndexDropdown values={filterValues} queryParam="status" />
-              <IndexDropdown values={genderValues} queryParam="gender" />
+              <Tooltip position={Position.top} text={"Status"}>
+                <IndexDropdown values={filterValues} queryParam="status" />
+              </Tooltip>
+              <Tooltip position={Position.top} text={"Gender"}>
+                <IndexDropdown values={genderValues} queryParam="gender" />
+              </Tooltip>
             </div>
           </div>
           {characters && (
@@ -43,7 +48,7 @@ export default function Characters({ characters, forcePage }: Props) {
               <h2 className={classes.h2}>Tap on arrow for more information</h2>
               <div className={classes.characters}>
                 {characters.results.map((character) => (
-                  <MotionContainer key={character.id} customKey={character.id}>
+                  <MotionContainer key={character.id}>
                     <CharacterCard character={character} />
                   </MotionContainer>
                 ))}

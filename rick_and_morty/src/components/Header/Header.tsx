@@ -4,6 +4,7 @@ import { MdNotificationsNone } from "react-icons/md";
 
 import classes from "./Header.module.scss";
 import { toast } from "react-toastify";
+import { Position, Tooltip } from "@components/Tooltip";
 
 const Notifications = [
   "There is a theory that Rick killed his original Morty and as a result travelled to another dimension to find a new Morty who he will never let leave his side. Many fans believe this Evil Morty is the original Morty that Rick thinks he accidentally killed and Evil Morty is secretly planning his revenge on Rick.",
@@ -44,7 +45,11 @@ export const Header: React.FC = () => {
         <Image className={classes.logo__img} src="/images/logo.png" alt="logo" fill sizes="100%" />
       </div>
       <button className={classes.notification} onClick={notify}>
-        {<MdNotificationsNone />}
+        {
+          <Tooltip position={Position.bottom} text="Some facts">
+            <MdNotificationsNone />
+          </Tooltip>
+        }
       </button>
     </header>
   );

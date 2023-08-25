@@ -12,13 +12,8 @@ import { LocationCard } from "@components/LocationCard";
 import { Episode } from "@/types/episode";
 import { getArrayOfEpisodes, getSingleEpisode } from "@/utils/getEpisodes";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { EffectCoverflow, Pagination, Navigation, Mousewheel } from "swiper/modules";
 import { EpisodeCard } from "@components/EpisodeCard";
+import { Carousel } from "@components/Carousel";
 
 type Props = {
   character: Character;
@@ -43,7 +38,7 @@ export default function CharacterPage({
       <div className={classes.page}>
         <div className={classes.main}>
           <div className={classes.info}>
-            <MotionContainer customKey={"info__img"}>
+            <MotionContainer>
               <div className={classes.info__img}>
                 <Image
                   alt={character.name}
@@ -53,7 +48,7 @@ export default function CharacterPage({
                 />
               </div>
             </MotionContainer>
-            <MotionContainer customKey={"info__text"}>
+            <MotionContainer>
               <div className={classes.info__text}>
                 <h1 className={classes.h1}>{character.name}</h1>
                 <div>
@@ -91,7 +86,7 @@ export default function CharacterPage({
           </div>
           <div className={classes.locations}>
             {originLocation && (
-              <MotionContainer customKey="origin-location">
+              <MotionContainer>
                 <div className={classes.origin_location}>
                   <h2 className={classes.h2}>Origin Location:</h2>
                   <LocationCard location={originLocation} />
@@ -99,7 +94,7 @@ export default function CharacterPage({
               </MotionContainer>
             )}
             {lastLocation && (
-              <MotionContainer customKey="last-location">
+              <MotionContainer>
                 <div className={classes.last_location}>
                   <h2 className={classes.h2}>Last Location:</h2>
                   <LocationCard location={lastLocation} />
@@ -107,36 +102,16 @@ export default function CharacterPage({
               </MotionContainer>
             )}
           </div>
-          <MotionContainer customKey={"episodes-carousel"}>
+          <MotionContainer>
             <div className={classes.carousel}>
               <h2 className={classes.h2}>All Episodes:</h2>
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
-                mousewheel={true}
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                navigation={true}
-                pagination={{
-                  type: "fraction",
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation, Mousewheel]}
-                className={classes.swiper}
-              >
-                {episodes &&
-                  episodes.map((episode) => (
-                    <SwiperSlide key={episode.id} className={classes["swiper-slide"]}>
-                      <EpisodeCard episode={episode} />
-                    </SwiperSlide>
+              {episodes && (
+                <Carousel swiperSlideClass={classes["swiper-slide"]}>
+                  {episodes.map((episode) => (
+                    <EpisodeCard key={episode.id} episode={episode} />
                   ))}
-              </Swiper>
+                </Carousel>
+              )}
             </div>
           </MotionContainer>
         </div>
@@ -175,9 +150,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ query }) =
   const episodeIds: string[] = [];
 
   for (const url of character.episode) {
-    const lastChar = url.split("/").at(-1) ?? "";
-    if (lastChar !== "") {
-      episodeIds.push(lastChar);
+    const id = url.split("/").at(-1) ?? "";
+    if (id !== "") {
+      episodeIds.push(id);
     }
   }
 

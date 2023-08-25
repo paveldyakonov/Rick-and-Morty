@@ -3,6 +3,7 @@ import classes from "./Footer.module.scss";
 import { SlSocialGithub, SlSocialVkontakte } from "react-icons/sl";
 import { PiTelegramLogoLight } from "react-icons/pi";
 import Link from "next/link";
+import { Position, Tooltip } from "@components/Tooltip";
 
 type Link = {
   name: string;
@@ -37,9 +38,11 @@ export const Footer = () => {
       </div>
       <div className={classes.footer__links}>
         {links.map((link: Link) => (
-          <Link href={link.href} key={link.name} className={classes.link}>
-            {<link.icon />}
-          </Link>
+          <Tooltip key={link.name} position={Position.top} text={link.name}>
+            <Link href={link.href} className={classes.link}>
+              {<link.icon />}
+            </Link>
+          </Tooltip>
         ))}
       </div>
     </footer>

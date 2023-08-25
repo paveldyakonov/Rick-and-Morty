@@ -9,12 +9,14 @@
 }
 
 .sidebar {
+    height: 100vh;
+    padding-bottom: 50px;
+    overflow: hidden;
     width: 14rem;
     height: 100%;
     background-color: $primary_color;
     padding: 0.5rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-    overflow: hidden;
 }
 
 .sidebar__top {
@@ -131,6 +133,10 @@ body:not(body:has(.collapsed)) {
 
 
 @media (min-width: 1000px) {
+    .sidebar {
+        overflow-y: scroll;
+    }
+
     .sidebar__logo {
         width: 3.5rem;
         height: 3.5rem;

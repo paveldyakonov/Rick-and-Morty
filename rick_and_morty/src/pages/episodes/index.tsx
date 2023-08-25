@@ -11,6 +11,7 @@ import { EpisodeCard } from "@components/EpisodeCard";
 import { IndexDropdown } from "@components/IndexDropdown";
 import { seasonValues } from "@/config/filter";
 import { MotionContainer } from "@components/MotionContainer";
+import { Position, Tooltip } from "@components/Tooltip";
 
 type Props = {
   episodes: Episodes;
@@ -30,14 +31,16 @@ export default function Episodes({ episodes, forcePage }: Props) {
           <h1 className={classes.h1}>All Episodes</h1>
           <div className={classes.main__filters}>
             <SearchInput title="episode" />
-            <IndexDropdown values={seasonValues} queryParam={"season"} />
+            <Tooltip position={Position.top} text={"Season"}>
+              <IndexDropdown values={seasonValues} queryParam={"season"} />
+            </Tooltip>
           </div>
           {episodes && (
             <>
               <h2 className={classes.h2}>Tap on arrow for more information</h2>
               <div className={classes.episodes}>
                 {episodes.results.map((episode) => (
-                  <MotionContainer key={episode.id} customKey={episode.id}>
+                  <MotionContainer key={episode.id}>
                     <EpisodeCard episode={episode} />
                   </MotionContainer>
                 ))}
