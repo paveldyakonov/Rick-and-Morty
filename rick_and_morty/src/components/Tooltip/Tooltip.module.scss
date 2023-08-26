@@ -16,14 +16,15 @@
 
 @media (min-width: 1300px) {
     .tooltip-trigger {
+        font-family: 'Sriracha', cursive;
         text-align: center;
         position: relative;
         font-size: 0.8em;
 
         & .tooltip {
+            text-align: center;
             display: none;
             width: max-content;
-            height: max-content;
             background-color: $white_color;
             border: 1px solid $secondary_color;
             color: $secondary_color;
@@ -49,7 +50,7 @@
         }
 
         &:hover .tooltip {
-            display: block;
+            display: flex;
         }
     }
 
@@ -65,12 +66,12 @@
     }
 
     .tooltip-top {
-        bottom: 105%;
+        bottom: 120%;
         left: -10px;
     }
 
     .tooltip-bottom {
-        top: 105%;
+        top: 120%;
         right: 5px;
     }
 

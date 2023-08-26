@@ -1,0 +1,64 @@
+@import "@styles/variables.scss";
+
+.page {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__img {
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+
+    &__to_main {
+        font-size: 1.3em;
+        color: $secondary_color;
+
+        & a {
+            color: $primary_color;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .page {
+        width: 100vw;
+        padding-left: 50px;
+        margin: auto;
+
+        &__title {
+            font-size: 1em;
+            text-align: center;
+        }
+
+        &__img {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        &__to_main {
+            font-size: 0.8em;
+            color: $secondary_color;
+
+            & a {
+                color: $primary_color;
+            }
+        }
+
+        &__img {
+            position: relative;
+            width: 40vw;
+            height: 160px;
+        }
+    }
+}

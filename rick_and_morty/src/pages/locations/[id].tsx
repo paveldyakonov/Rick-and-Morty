@@ -11,6 +11,7 @@ import { getSingleLocation } from "@/utils/getLocations";
 
 import { Carousel } from "@components/Carousel";
 import { CharacterCard } from "@components/CharacterCard";
+import { Position, Tooltip } from "@components/Tooltip";
 
 type Props = {
   location: Location;
@@ -54,7 +55,14 @@ export default function LocationPage({ location, residents }: Props) {
           </div>
           <MotionContainer>
             <div className={classes.carousel}>
-              <h2 className={classes.h2}>All Residents:</h2>
+              <h2 className={classes.h2}>
+                <Tooltip
+                  position={Position.top}
+                  text={"Characters who have been last seen in the location"}
+                >
+                  All Residents:
+                </Tooltip>
+              </h2>
               {residents && (
                 <Carousel swiperSlideClass={classes["swiper-slide"]}>
                   {residents.map((resident) => (

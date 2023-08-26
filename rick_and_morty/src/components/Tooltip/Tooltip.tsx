@@ -20,7 +20,7 @@ export const Tooltip: React.FC<Props> = ({ children, position, text }) => {
       {children}
       <div className={`${classes.tooltip} ${classes[`tooltip-${position}`]}`}>
         <div className={classes.tooltip__content}>
-          <div>{text}</div>
+          {text}
           <div className={classes.tooltip__img}>
             <Image src={"/images/logo3.png"} alt="tooltip-logo" fill sizes="100%" />
           </div>
