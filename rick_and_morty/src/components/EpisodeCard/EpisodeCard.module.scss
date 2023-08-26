@@ -73,7 +73,7 @@
 
         & .moreinfo_icon {
             display: block;
-            color: $white_color;
+            color: $text-hover-color;
             position: absolute;
             top: 3%;
             left: 4%;
@@ -99,12 +99,12 @@
 
         p {
             font-size: 17px;
-            color: $white_color;
+            color: $text-hover-color;
         }
 
         .episode {
             font-size: 15px;
-            color: darkslategrey;
+            color: $light-grey;
             transform: skewX(20deg);
         }
 
@@ -130,7 +130,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background: $white_color;
+        background: $text-hover-color;
         position: absolute;
         top: -15%;
         left: 80%;
@@ -155,7 +155,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background: $white_color;
+        background: $text-hover-color;
         position: absolute;
         top: -15%;
         right: 80%;
@@ -274,7 +274,7 @@
 
             & .moreinfo_icon {
                 display: block;
-                color: $white_color;
+                color: $text-hover-color;
                 position: absolute;
                 top: 3%;
                 left: 4%;
@@ -290,7 +290,6 @@
             background: $white_color;
             width: 300px;
             height: 200px;
-            //transform: skewX(-20deg);
             display: block;
             position: absolute;
             top: 50%;
@@ -301,13 +300,13 @@
 
             p {
                 font-size: 1.4em;
-                color: $white_color;
+                color: $text-hover-color;
                 transform: skewX(20deg);
             }
 
             .episode {
                 font-size: 1.2em;
-                color: $white_color;
+                color: $light-grey;
                 transform: skewX(20deg);
             }
 
@@ -333,7 +332,7 @@
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            background: $white_color;
+            background: $text-hover-color;
             position: absolute;
             top: -10%;
             right: 85%;
@@ -357,7 +356,7 @@
         & .moreinfo_icon,
         &:hover .moreinfo_icon {
             display: block;
-            color: $white_color;
+            color: $text-hover-color;
             position: absolute;
             top: 2%;
             left: 2%;
@@ -372,7 +371,7 @@
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            background: $white_color;
+            background: $text-hover-color;
             position: absolute;
             top: -10%;
             left: 85%;
@@ -503,7 +502,6 @@
             background: $white_color;
             width: 175px;
             height: 70px;
-            //transform: skewX(-20deg);
             display: block;
             position: absolute;
             top: 50%;
@@ -514,13 +512,13 @@
 
             p {
                 font-size: 0.8em;
-                color: $white_color;
+                color: $text-hover-color;
                 transform: skewX(20deg);
             }
 
             .episode {
                 font-size: 0.7em;
-                color: $white_color;
+                color: $light-grey;
                 transform: skewX(20deg);
             }
 
@@ -546,7 +544,7 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            background: $white_color;
+            background: $text-hover-color;
             position: absolute;
             top: -13%;
             right: 80%;
@@ -570,7 +568,7 @@
         & .moreinfo_icon,
         &:hover .moreinfo_icon {
             display: block;
-            color: $white_color;
+            color: $text-hover-color;
             position: absolute;
             top: 2%;
             left: 2%;
@@ -585,7 +583,7 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            background: $white_color;
+            background: $text-hover-color;
             position: absolute;
             top: -13%;
             left: 80%;

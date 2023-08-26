@@ -73,7 +73,7 @@
 
         & .moreinfo_icon {
             display: block;
-            color: $white_color;
+            color: $text-hover-color;
             position: absolute;
             top: 3%;
             left: 7%;
@@ -99,13 +99,13 @@
 
         p {
             font-size: 17px;
-            color: $white_color;
+            color: $text-hover-color;
         }
 
         .status-alive {
             font-weight: bold;
             font-size: 16px;
-            color: $primary_color;
+            color: #80c143;
             transform: skewX(20deg);
         }
 
@@ -125,18 +125,18 @@
 
         .type {
             font-size: 16px;
-            color: $white_color;
+            color: $text-hover-color;
             transform: skewX(20deg);
         }
 
         .location {
             font-size: 13px;
-            color: dimgrey;
+            color: $light-grey;
             transform: skewX(20deg);
 
             &-name {
                 font-size: 13px;
-                color: $white_color;
+                color: $text-hover-color;
                 transform: skewX(20deg);
             }
         }
@@ -157,7 +157,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background: $white_color;
+        background: $text-hover-color;
         position: absolute;
         top: -15%;
         left: 70%;
@@ -182,7 +182,7 @@
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        background: $white_color;
+        background: $text-hover-color;
         position: absolute;
         top: -15%;
         right: 70%;
@@ -312,7 +312,7 @@
 
             p {
                 font-size: 0.7em;
-                color: $white_color;
+                color: $text-hover-color;
                 transform: skewX(20deg);
             }
 
@@ -364,7 +364,7 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            background: $white_color;
+            background: $text-hover-color;
             position: absolute;
             top: -20%;
             right: 70%;
@@ -388,7 +388,7 @@
         & .moreinfo_icon,
         &:hover .moreinfo_icon {
             display: block;
-            color: $white_color;
+            color: $text-hover-color;
             position: absolute;
             top: 2%;
             left: 2%;
@@ -403,7 +403,7 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            background: $white_color;
+            background: $text-hover-color;
             position: absolute;
             top: -17%;
             left: 70%;

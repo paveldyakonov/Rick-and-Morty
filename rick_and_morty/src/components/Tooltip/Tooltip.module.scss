@@ -27,7 +27,7 @@
             width: max-content;
             background-color: $white_color;
             border: 1px solid $secondary_color;
-            color: $secondary_color;
+            color: $pagination-hover-text-color;
             text-align: center;
             border-radius: 6px;
             padding: 2px;
@@ -83,7 +83,7 @@
         margin-left: -5px;
         border-width: 7px;
         border-style: solid;
-        border-color: $secondary_color transparent transparent transparent;
+        border-color: $pagination-hover-text-color transparent transparent transparent;
     }
 
 
@@ -95,7 +95,7 @@
         margin-left: -5px;
         border-width: 7px;
         border-style: solid;
-        border-color: transparent transparent $secondary_color transparent;
+        border-color: transparent transparent $pagination-hover-text-color transparent;
     }
 
 
@@ -107,7 +107,7 @@
         margin-top: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent $secondary_color transparent transparent;
+        border-color: transparent $pagination-hover-text-color transparent transparent;
     }
 
 
@@ -119,6 +119,6 @@
         margin-top: -5px;
         border-width: 5px;
         border-style: solid;
-        border-color: transparent transparent transparent $secondary_color ;
+        border-color: transparent transparent transparent $pagination-hover-text-color;
     }
 }

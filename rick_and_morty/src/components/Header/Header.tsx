@@ -5,6 +5,8 @@ import { MdNotificationsNone } from "react-icons/md";
 import classes from "./Header.module.scss";
 import { toast } from "react-toastify";
 import { Position, Tooltip } from "@components/Tooltip";
+import { ThemeSwitch } from "@components/ThemeSwitch";
+import { useTheme } from "next-themes";
 
 const Notifications = [
   "There is a theory that Rick killed his original Morty and as a result travelled to another dimension to find a new Morty who he will never let leave his side. Many fans believe this Evil Morty is the original Morty that Rick thinks he accidentally killed and Evil Morty is secretly planning his revenge on Rick.",
@@ -20,6 +22,8 @@ const Notifications = [
 ];
 
 export const Header: React.FC = () => {
+  const { resolvedTheme } = useTheme();
+
   const getRandom = (max: number): number => {
     return Math.floor(Math.random() * max);
   };
@@ -35,7 +39,7 @@ export const Header: React.FC = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: `${resolvedTheme === "light" ? "light" : "dark"}`,
     });
   };
 
@@ -44,6 +48,7 @@ export const Header: React.FC = () => {
       <div className={classes.logo}>
         <Image className={classes.logo__img} src="/images/logo.png" alt="logo" fill sizes="100%" />
       </div>
+      <ThemeSwitch />
       <button className={classes.notification} onClick={notify}>
         {
           <Tooltip position={Position.bottom} text="Some facts">

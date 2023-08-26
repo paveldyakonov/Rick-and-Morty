@@ -6,6 +6,7 @@
 
     &__input {
         box-shadow: $card-shadow;
+        background-color: $white_color;
         border: 2px solid $primary_color;
         padding: 12px 20px;
         border-radius: 10px;
@@ -14,7 +15,8 @@
         font-size: 1em;
         transition: border .05s ease-in-out;
         outline: none;
-        @include fontInfo()
+        @include fontInfo();
+        color: $text_color;
     }
 
     &__img {

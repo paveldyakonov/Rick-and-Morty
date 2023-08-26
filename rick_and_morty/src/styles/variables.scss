@@ -1,9 +1,21 @@
-$primary_color: #80c143;
-$secondary_color: #01afc8;
-$white_color: #f3f4f6;
-$grey_color: #33383b;
+$primary_color: var(--primary-color);
+$secondary_color: var(--secondary-color);
+$white_color: var(--white-color);
+$grey_color: var(--grey_color);
+$text_color: var(--text-color);
 $box-shadow: 0px 4px 20px rgba(175, 173, 181, 0.5);
-$green_gradient: linear-gradient(45deg, rgb(161, 255, 206, 0.5), rgb(249, 255, 209, 0.5));
+$green_gradient: var(--green_gradient);
+$text-primary-color: var(--text-primary-color);
+$text-hover-color: var(--text-hover-color);
+$sidebar-link-color: var(--sidebar-link-color);
+$light-grey: var(--light-grey);
+$separator-color: var(--separator-color);
+
+$pagination-text-color: var(--pagination-text-color);
+$pagination-hover-text-color: var(--pagination-hover-text-color);
+
+$notification-bg-color: var(--notification-bg-color);
+
 $transition25: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 $card-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 $card-hover-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);

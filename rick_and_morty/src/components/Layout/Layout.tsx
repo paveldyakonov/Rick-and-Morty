@@ -24,7 +24,6 @@ export const Layout: React.FC<Props> = ({ children }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
       />
       <div className={classes.content}>
         <Sidebar />

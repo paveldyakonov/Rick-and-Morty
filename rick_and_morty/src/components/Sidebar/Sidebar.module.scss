@@ -39,7 +39,7 @@
     }
 
     & .sidebar__logo-name {
-        color: $secondary_color;
+        color: $text-hover-color;
         transform: scale(1.1);
     }
 }
@@ -55,7 +55,7 @@
 .sidebar__logo-name {
     font-size: 1.2rem;
     font-weight: 600;
-    color: $white_color;
+    color: $text-hover-color;
     transition: $transition25;
 }
 
@@ -67,7 +67,7 @@
     display: inline-block;
     font-size: 1rem;
     text-decoration: none;
-    color: #000;
+    color: $sidebar-link-color;
     padding: 0.8rem 0.5rem;
     display: flex;
     background-color: $white_color;
@@ -76,7 +76,7 @@
 }
 
 .sidebar__link--active {
-    color: $white_color;
+    color: $text-hover-color;
     background-color: $secondary_color;
 }
 
@@ -126,7 +126,7 @@ body:not(body:has(.collapsed)) {
 
 @media (min-width: 1300px) {
     .sidebar__link:hover {
-        color: $white_color;
+        color: $text-hover-color;
         background-color: $secondary_color;
     }
 }
