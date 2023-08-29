@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import classes from "./ThemeSwitch.module.scss";
+import { BsSunFill, BsMoonFill } from "react-icons/bs";
+import React from "react";
 
-export const ThemeSwitch = () => {
+type Props = {
+  nameClass: string;
+};
+
+export const ThemeSwitch: React.FC<Props> = ({ nameClass }) => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -15,11 +21,14 @@ export const ThemeSwitch = () => {
   }
 
   return (
-    <>
-      <p>Current theme: {resolvedTheme}</p>
-      <button onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}>
-        <span>Toggle Theme</span>
-      </button>
-    </>
+    <div
+      onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+      className={classes.theme__btn}
+    >
+      <span className={classes.theme__icon}>
+        {resolvedTheme === "light" ? <BsSunFill /> : <BsMoonFill />}
+      </span>
+      <span className={nameClass}>{resolvedTheme === "light" ? "Light Mode" : "Dark Mode"}</span>
+    </div>
   );
 };

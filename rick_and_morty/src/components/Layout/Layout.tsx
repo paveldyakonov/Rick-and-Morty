@@ -4,6 +4,7 @@ import { Sidebar } from "@components/Sidebar";
 
 import classes from "./Layout.module.scss";
 import { ToastContainer } from "react-toastify";
+import { MotionContainer } from "@components/MotionContainer";
 
 type Props = {
   children: JSX.Element;

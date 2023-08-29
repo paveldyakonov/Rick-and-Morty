@@ -11,6 +11,8 @@
   --text-primary-color: #80c143;
   --sidebar-link-color: black;
 
+  --dark-mode-color: yellow;
+
   --light-grey: dimgrey;
 
   --pagination-text-color: #80c143;
@@ -26,6 +28,7 @@
 }
 
 [data-theme="dark"] {
+  --dark-mode-color: #f3f4f6;
   --primary-color: #2c3539;
   --secondary-color: #151b54;
   --white-color: #29465b;

@@ -21,7 +21,7 @@ export default function ErrorPage({ statusCode }: Props) {
         setSeconds(seconds - 1);
       }, 1000);
     } else {
-      router.push("/");
+      router.replace("/");
     }
   }, [seconds]);
 

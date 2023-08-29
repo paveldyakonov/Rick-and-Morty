@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { PiTelevisionSimpleBold } from "react-icons/pi";
 
 import classes from "./Sidebar.module.scss";
+import { ThemeSwitch } from "@components/ThemeSwitch";
 
 const sidebarItems = [
   {
@@ -76,12 +77,7 @@ export const Sidebar = () => {
         <ul className={classes.sidebar__list}>
           {sidebarItems.map(({ name, href, icon: Icon }) => {
             return (
-              <li
-                key={name}
-                className={classes.sidebar__item}
-                onClick={onLinkClickHandler}
-                id={`Tooltip${name}`}
-              >
+              <li key={name} className={classes.sidebar__item} onClick={onLinkClickHandler}>
                 <Link
                   className={`${classes.sidebar__link} ${
                     router.pathname === href ? classes["sidebar__link--active"] : ""
@@ -96,6 +92,9 @@ export const Sidebar = () => {
               </li>
             );
           })}
+          <li className={classes.sidebar__item} onClick={onLinkClickHandler}>
+            <ThemeSwitch nameClass={classes.sidebar__name} />
+          </li>
         </ul>
       </aside>
     </div>

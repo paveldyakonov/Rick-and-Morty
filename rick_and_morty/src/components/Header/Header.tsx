@@ -48,7 +48,7 @@ export const Header: React.FC = () => {
       <div className={classes.logo}>
         <Image className={classes.logo__img} src="/images/logo.png" alt="logo" fill sizes="100%" />
       </div>
-      <ThemeSwitch />
+      {/* <ThemeSwitch /> */}
       <button className={classes.notification} onClick={notify}>
         {
           <Tooltip position={Position.bottom} text="Some facts">

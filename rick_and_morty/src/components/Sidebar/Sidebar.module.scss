@@ -87,6 +87,7 @@
 
 .sidebar__name {
     margin-left: 0.5rem;
+    white-space: nowrap;
 }
 
 body:not(body:has(.collapsed)) {

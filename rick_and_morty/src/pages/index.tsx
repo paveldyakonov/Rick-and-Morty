@@ -13,7 +13,7 @@ type Category = {
 
 const cardVariants: Variants = {
   offscreen: {
-    y: 300,
+    y: 100,
     opacity: 0,
     rotate: -10,
   },
