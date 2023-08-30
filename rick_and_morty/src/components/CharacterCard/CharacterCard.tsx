@@ -55,7 +55,7 @@ export const CharacterCard: React.FC<Props> = ({ character }) => {
         <span className={classes["location-name"]}>{character.origin.name}</span>
       </span>
       <span className={classes["cards--three__circle2"]}></span>
-      <Link href={`/characters/${character.id}`}>
+      <Link title={character.name} href={`/characters/${character.id}`}>
         <IconContext.Provider value={{ className: `${classes.moreinfo_icon}`, size: "1.2em" }}>
           <div>
             <BsArrowUpCircle />

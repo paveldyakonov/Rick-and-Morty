@@ -37,7 +37,7 @@ export const LocationCard: React.FC<Props> = ({ location }) => {
         <span className={classes["location-name"]}>{location.dimension}</span>
       </span>
       <span className={classes["cards--three__circle2"]}></span>
-      <Link href={`/locations/${location.id}`}>
+      <Link title={location.name} href={`/locations/${location.id}`}>
         <IconContext.Provider value={{ className: `${classes.moreinfo_icon}`, size: "1.5em" }}>
           <div>
             <BsArrowUpCircle />

@@ -32,7 +32,7 @@ export const Dropdown: React.FC<Props> = ({
 
   return (
     <div ref={dropdownRef} className={classes.dropdown} onClick={() => setIsVisible(!isVisible)}>
-      <div className={classes.dropdown__btn}>
+      <button className={classes.dropdown__btn}>
         <span className={classes.dropdown__title}>{selected}</span>
         <div className={classes.dropdown__img}>
           <Image
@@ -61,7 +61,7 @@ export const Dropdown: React.FC<Props> = ({
             ))}
           </div>
         )}
-      </div>
+      </button>
     </div>
   );
 };

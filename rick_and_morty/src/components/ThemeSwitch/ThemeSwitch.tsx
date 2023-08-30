@@ -21,7 +21,8 @@ export const ThemeSwitch: React.FC<Props> = ({ nameClass }) => {
   }
 
   return (
-    <div
+    <button
+      title="Dark|Light Mode"
       onClick={() => setTheme(resolvedTheme === "light" ? "dark" : "light")}
       className={classes.theme__btn}
     >
@@ -29,6 +30,6 @@ export const ThemeSwitch: React.FC<Props> = ({ nameClass }) => {
         {resolvedTheme === "light" ? <BsSunFill /> : <BsMoonFill />}
       </span>
       <span className={nameClass}>{resolvedTheme === "light" ? "Light Mode" : "Dark Mode"}</span>
-    </div>
+    </button>
   );
 };

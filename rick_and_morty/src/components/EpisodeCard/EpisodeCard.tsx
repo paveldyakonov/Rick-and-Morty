@@ -39,7 +39,7 @@ export const EpisodeCard: React.FC<Props> = ({ episode }) => {
         <span className={classes["type"]}>{episode.air_date}</span>
       </span>
       <span className={classes["cards--three__circle2"]}></span>
-      <Link href={`/episodes/${episode.id}`}>
+      <Link title={episode.name} href={`/episodes/${episode.id}`}>
         <IconContext.Provider value={{ className: `${classes.moreinfo_icon}`, size: "1.5em" }}>
           <div>
             <BsArrowUpCircle />

@@ -28,6 +28,8 @@ export default function Characters({ characters, forcePage }: Props) {
         <title>Rick-and-Morty | Characters</title>
         <meta name="description" content="Rick-and-Morty all characters" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Dyakonov Pavel" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={classes.page}>
         <div className={classes.main}>

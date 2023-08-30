@@ -2,6 +2,7 @@
 
 .theme {
     &__btn {
+        font-family: 'Sriracha', cursive;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-tap-highlight-color: transparent;
         -webkit-user-select: none;
@@ -23,6 +24,7 @@
         border-radius: 0.8rem;
         position: absolute;
         bottom: 0;
+        border: none;
     }
 
     &__icon {

@@ -5,7 +5,6 @@ import { MdNotificationsNone } from "react-icons/md";
 import classes from "./Header.module.scss";
 import { toast } from "react-toastify";
 import { Position, Tooltip } from "@components/Tooltip";
-import { ThemeSwitch } from "@components/ThemeSwitch";
 import { useTheme } from "next-themes";
 
 const Notifications = [
@@ -48,8 +47,11 @@ export const Header: React.FC = () => {
       <div className={classes.logo}>
         <Image className={classes.logo__img} src="/images/logo.png" alt="logo" fill sizes="100%" />
       </div>
-      {/* <ThemeSwitch /> */}
-      <button className={classes.notification} onClick={notify}>
+      <button
+        title="Some facts about rick and morty"
+        className={classes.notification}
+        onClick={notify}
+      >
         {
           <Tooltip position={Position.bottom} text="Some facts">
             <MdNotificationsNone />

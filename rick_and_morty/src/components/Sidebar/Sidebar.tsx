@@ -58,11 +58,16 @@ export const Sidebar = () => {
 
   return (
     <div ref={sidebarRef} className={classes.sidebar__wrapper}>
-      <button className={classes.btn} onClick={toggleSidebarcollapse}>
+      <button title="Sidebar menu" className={classes.btn} onClick={toggleSidebarcollapse}>
         <MdMenu />
       </button>
       <aside className={`${classes.sidebar} ${isCollapsed ? classes.collapsed : ""}`}>
-        <Link className={classes.sidebar__top_link} href={"/"} onClick={onLinkClickHandler}>
+        <Link
+          title="Home Page"
+          className={classes.sidebar__top_link}
+          href={"/"}
+          onClick={onLinkClickHandler}
+        >
           <div className={classes.sidebar__top}>
             <Image
               width={80}
@@ -79,6 +84,7 @@ export const Sidebar = () => {
             return (
               <li key={name} className={classes.sidebar__item} onClick={onLinkClickHandler}>
                 <Link
+                  title={name}
                   className={`${classes.sidebar__link} ${
                     router.pathname === href ? classes["sidebar__link--active"] : ""
                   }`}

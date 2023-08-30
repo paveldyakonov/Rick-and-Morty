@@ -57,6 +57,7 @@ export default function Home() {
           content="Rick-and-Morty all characters, all locations and all epizodes"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Dyakonov Pavel" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={classes.page}>
@@ -71,6 +72,7 @@ export default function Home() {
           <div className={classes.main__categories}>
             {categories.map((category) => (
               <motion.div
+                title={category.title}
                 key={category.title}
                 className="card-container"
                 initial="offscreen"

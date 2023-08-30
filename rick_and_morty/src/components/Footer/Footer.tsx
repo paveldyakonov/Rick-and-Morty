@@ -39,7 +39,7 @@ export const Footer = () => {
       <div className={classes.footer__links}>
         {links.map((link: Link) => (
           <Tooltip key={link.name} position={Position.top} text={link.name}>
-            <Link href={link.href} className={classes.link}>
+            <Link title={link.name} href={link.href} className={classes.link}>
               {<link.icon />}
             </Link>
           </Tooltip>
