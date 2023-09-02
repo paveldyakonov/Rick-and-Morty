@@ -52,6 +52,10 @@ export default function Home() {
     <>
       <Head>
         <title>Rick-and-Morty</title>
+        <meta
+          name="google-site-verification"
+          content="C-b4iOUC02I7Clm-XSvsgCxVv6vtsSxPgzorc5SZWdw"
+        />
         <meta name="yandex-verification" content="a9a58e54e0787d3f" />
         <meta
           name="description"
