@@ -52,6 +52,7 @@ export default function Home() {
     <>
       <Head>
         <title>Rick-and-Morty</title>
+        <meta name="yandex-verification" content="a9a58e54e0787d3f" />
         <meta
           name="description"
           content="Rick-and-Morty all characters, all locations and all epizodes"
