@@ -1,0 +1,8 @@
+//robots.txt
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Allow: /characters
+Allow: /locations
+Allow: /episodes
